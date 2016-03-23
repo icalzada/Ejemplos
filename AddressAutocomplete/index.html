@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Place Autocomplete Address Form</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <style>
+      .label {
+        text-align: right;
+        font-weight: bold;
+      }
+      .address {
+        border: 1px solid #000090;
+        background-color: #f0f0ff;
+      }
+      .address td {
+        font-size: 10pt;
+      }
+      input[type="text"]{
+        display: block;
+        width: 85%;
+        padding: 4px 8px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #000;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      }
+      .autocompleteGMInput{
+        width: 460px !important;
+        margin: 5px 0px;
+      }
+    </style>
+    <script src="js/autocompletegm.js"></script>
+  </head>
+  <body>
+    <div class="formAutocomplete">
+      <input id="autocgm0" class="autocompleteGMInput" type="text" placeholder="Enter your address"></input>
+      <table class="address">
+        <tr>
+          <td class="label">Street address</td>
+          <td class="slimField"><input class="field-autocompleteGM street_number short_name" type="text" 
+                disabled="true" /></td>
+          <td class="wideField" colspan="2"><input class="field-autocompleteGM route long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label">City</td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM locality long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label"></td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM sublocality_level_1 long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label"></td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM administrative_area_level_3 long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label">State</td>
+          <td class="slimField"><input class="field-autocompleteGM administrative_area_level_1 short_name" type="text" disabled="true" /></td>
+          <td class="label">Zip code</td>
+          <td class="wideField"><input class="field-autocompleteGM postal_code short_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label">Country</td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM country long_name" type="text" disabled="true" /></td>
+        </tr>
+        <input type="hidden" value="" class="field-autocompleteGM lat" />
+        <input type="hidden" value="" class="field-autocompleteGM lng" />
+      </table>
+    </div>
+
+    <div class="formAutocomplete">
+      <input id="autocgm1" class="autocompleteGMInput" type="text" placeholder="Enter your address"></input>
+      <table class="address">
+        <tr>
+          <td class="label">Street address</td>
+          <td class="slimField"><input class="field-autocompleteGM street_number short_name" type="text" 
+                disabled="true" /></td>
+          <td class="wideField" colspan="2"><input class="field-autocompleteGM route long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label">City</td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM locality long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label"></td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM sublocality_level_1 long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label"></td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM administrative_area_level_3 long_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label">State</td>
+          <td class="slimField"><input class="field-autocompleteGM administrative_area_level_1 short_name" type="text" disabled="true" /></td>
+          <td class="label">Zip code</td>
+          <td class="wideField"><input class="field-autocompleteGM postal_code short_name" type="text"
+                disabled="true" /></td>
+        </tr>
+        <tr>
+          <td class="label">Country</td>
+          <td class="wideField" colspan="3"><input class="field-autocompleteGM country long_name" type="text" disabled="true" /></td>
+        </tr>
+        <input type="hidden" value="" class="field-autocompleteGM lat" />
+        <input type="hidden" value="" class="field-autocompleteGM lng" />
+      </table>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA27fp_c1y5vROSXPMw03auMAUFC_GOEqM&libraries=places&callback=initAutocomplete"
+        async defer></script>
+  </body>
+</html>
