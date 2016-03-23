@@ -17,6 +17,7 @@ function fillInAddress() {
     var gaafFields = document.getElementById(gaafInputs[currentInput]).parentNode.getElementsByClassName("gaaf-field");
     for (var i = 0; i < gaafFields.length; i++) {
       gaafFields[i].disabled = false;
+      gaafFields[i].value = "";
       if(gaafFields[i].dataset.gaafField == "lat"){
         gaafFields[i].value = place.geometry.location.lat();
       }else if(gaafFields[i].dataset.gaafField == "lng"){
