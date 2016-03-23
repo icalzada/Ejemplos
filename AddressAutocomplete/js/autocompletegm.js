@@ -1,49 +1,43 @@
-var autocompleteGMInputs = [];
-var autocompletesGMForms = [];
+var gaafInputs = [];
+var gaafForms = [];
 var currentInput = 0;
 
 function initAutocomplete() {
-  getAutocompletesGMForms();
-  for(var i = 0; i < autocompleteGMInputs.length; i++){
-    autocompletesGMForms.push(new google.maps.places.Autocomplete((document.getElementById(autocompleteGMInputs[i])),
+  getGaafInputs();
+  for(var i = 0; i < gaafInputs.length; i++){
+    gaafForms.push(new google.maps.places.Autocomplete((document.getElementById(gaafInputs[i])),
       {types: ['geocode']}));
-    autocompletesGMForms[i].addListener('place_changed', fillInAddress);
+    gaafForms[i].addListener('place_changed', fillInAddress);
   }
 }
 
 function fillInAddress() {
-  var place = autocompletesGMForms[currentInput].getPlace();
-  var allFields = document.getElementById(autocompleteGMInputs[currentInput]).parentNode.getElementsByClassName("field-autocompleteGM")
-  for (var i = 0; i < allFields.length; i++) {
-    allFields[i].value = '';
-    allFields[i].disabled = false;
-  }
-  for (var i = 0; i < place.address_components.length; i++) {
-    var addressType = place.address_components[i].types[0];
-    var currentElement = document.getElementById(autocompleteGMInputs[currentInput]).parentNode.getElementsByClassName(addressType)[0];
-    if (currentElement) {
-      var elementClass = currentElement.className.split(" ");
-      var val = place.address_components[i][elementClass[2]];
-      currentElement.value = val;
+  var place = gaafForms[currentInput].getPlace();
+  if(place){
+    var gaafFields = document.getElementById(gaafInputs[currentInput]).parentNode.getElementsByClassName("gaaf-field");
+    for (var i = 0; i < gaafFields.length; i++) {
+      gaafFields[i].disabled = false;
+      if(gaafFields[i].dataset.gaafField == "lat"){
+        gaafFields[i].value = place.geometry.location.lat();
+      }else if(gaafFields[i].dataset.gaafField == "lng"){
+        gaafFields[i].value = place.geometry.location.lng();
+      }else{
+        for (var j = 0; j < place.address_components.length; j++) {
+          if(place.address_components[j].types[0] == gaafFields[i].dataset.gaafField){
+            gaafFields[i].value = place.address_components[j][gaafFields[i].dataset.gaafKey];
+          }
+        }
+      }
     }
-  }
-  var geometryLocation = place.geometry.location;
-  var elementLat = document.getElementById(autocompleteGMInputs[currentInput]).parentNode.getElementsByClassName("lat")[0];
-  var elementLng = document.getElementById(autocompleteGMInputs[currentInput]).parentNode.getElementsByClassName("lng")[0];
-  if(elementLat){
-    elementLat.value = geometryLocation.lat()
-  }
-  if(elementLng){
-    elementLng.value = geometryLocation.lng()
   }
 }
 
-function getAutocompletesGMForms(){
-  var elementForms = document.getElementsByClassName("autocompleteGMInput");
-  for(var i=0;i<elementForms.length;i++){
-    autocompleteGMInputs.push(elementForms[i].id);
-    elementForms[i].onfocus = function(){
-      currentInput = autocompleteGMInputs.indexOf(this.id);
+function getGaafInputs(){
+  var elementsGaafInput = document.getElementsByClassName("gaaf-input");
+  for(var i=0;i<elementsGaafInput.length;i++){
+    gaafInputs.push(elementsGaafInput[i].id);
+    elementsGaafInput[i].onfocus = function(){
+      currentInput = gaafInputs.indexOf(this.id);
     };
   }
 }

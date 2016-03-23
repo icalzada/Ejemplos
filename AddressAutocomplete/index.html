@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-MX">
   <head>
     <meta charset="utf-8">
     <title>Place Autocomplete Address Form</title>
@@ -32,7 +32,7 @@
         -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
       }
-      .autocompleteGMInput{
+      .gaaf-input{
         width: 460px !important;
         margin: 5px 0px;
       }
@@ -40,88 +40,109 @@
     <script src="js/autocompletegm.js"></script>
   </head>
   <body>
-    <div class="formAutocomplete">
-      <input id="autocgm0" class="autocompleteGMInput" type="text" placeholder="Enter your address"></input>
+    <div class="gaaf-form">
+      <input id="gaaf-input-0" class="gaaf-input" type="text" placeholder="Enter your address" />
       <table class="address">
         <tr>
           <td class="label">Street address</td>
-          <td class="slimField"><input class="field-autocompleteGM street_number short_name" type="text" 
-                disabled="true" /></td>
-          <td class="wideField" colspan="2"><input class="field-autocompleteGM route long_name" type="text"
-                disabled="true" /></td>
+          <td>
+            <input class="gaaf-field" type="text" data-gaaf-field="street_number" data-gaaf-key="short_name" disabled />
+          </td>
+          <td colspan="2">
+            <input class="gaaf-field" type="text" data-gaaf-field="route" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label">City</td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM locality long_name" type="text"
-                disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="locality" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label"></td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM sublocality_level_1 long_name" type="text"
-                disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="sublocality_level_1" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label"></td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM administrative_area_level_3 long_name" type="text"
-                disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="administrative_area_level_3" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label">State</td>
-          <td class="slimField"><input class="field-autocompleteGM administrative_area_level_1 short_name" type="text" disabled="true" /></td>
+          <td>
+            <input class="gaaf-field" type="text" data-gaaf-field="administrative_area_level_1" data-gaaf-key="short_name" disabled />
+          </td>
           <td class="label">Zip code</td>
-          <td class="wideField"><input class="field-autocompleteGM postal_code short_name" type="text"
-                disabled="true" /></td>
+          <td>
+            <input class="gaaf-field" type="text" data-gaaf-field="postal_code" data-gaaf-key="short_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label">Country</td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM country long_name" type="text" disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="country" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
-        <input type="hidden" value="" class="field-autocompleteGM lat" />
-        <input type="hidden" value="" class="field-autocompleteGM lng" />
+        <input class="gaaf-field" type="hidden" data-gaaf-field="lat" data-gaaf-key="lat" />
+        <input class="gaaf-field" type="hidden" data-gaaf-field="lng" data-gaaf-key="lng" />
       </table>
     </div>
 
-    <div class="formAutocomplete">
-      <input id="autocgm1" class="autocompleteGMInput" type="text" placeholder="Enter your address"></input>
+    <div class="gaaf-form">
+      <input id="gaaf-input-1" class="gaaf-input" type="text" placeholder="Enter your address" />
       <table class="address">
         <tr>
           <td class="label">Street address</td>
-          <td class="slimField"><input class="field-autocompleteGM street_number short_name" type="text" 
-                disabled="true" /></td>
-          <td class="wideField" colspan="2"><input class="field-autocompleteGM route long_name" type="text"
-                disabled="true" /></td>
+          <td>
+            <input class="gaaf-field" type="text" data-gaaf-field="street_number" data-gaaf-key="short_name" disabled />
+          </td>
+          <td colspan="2">
+            <input class="gaaf-field" type="text" data-gaaf-field="route" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label">City</td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM locality long_name" type="text"
-                disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="locality" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label"></td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM sublocality_level_1 long_name" type="text"
-                disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="sublocality_level_1" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label"></td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM administrative_area_level_3 long_name" type="text"
-                disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="administrative_area_level_3" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label">State</td>
-          <td class="slimField"><input class="field-autocompleteGM administrative_area_level_1 short_name" type="text" disabled="true" /></td>
+          <td>
+            <input class="gaaf-field" type="text" data-gaaf-field="administrative_area_level_1" data-gaaf-key="short_name" disabled />
+          </td>
           <td class="label">Zip code</td>
-          <td class="wideField"><input class="field-autocompleteGM postal_code short_name" type="text"
-                disabled="true" /></td>
+          <td>
+            <input class="gaaf-field" type="text" data-gaaf-field="postal_code" data-gaaf-key="short_name" disabled />
+          </td>
         </tr>
         <tr>
           <td class="label">Country</td>
-          <td class="wideField" colspan="3"><input class="field-autocompleteGM country long_name" type="text" disabled="true" /></td>
+          <td colspan="3">
+            <input class="gaaf-field" type="text" data-gaaf-field="country" data-gaaf-key="long_name" disabled />
+          </td>
         </tr>
-        <input type="hidden" value="" class="field-autocompleteGM lat" />
-        <input type="hidden" value="" class="field-autocompleteGM lng" />
+        <input class="gaaf-field" type="hidden" data-gaaf-field="lat" data-gaaf-key="lat" />
+        <input class="gaaf-field" type="hidden" data-gaaf-field="lng" data-gaaf-key="lng" />
       </table>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA27fp_c1y5vROSXPMw03auMAUFC_GOEqM&libraries=places&callback=initAutocomplete"
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA27fp_c1y5vROSXPMw03auMAUFC_GOEqM&libraries=places&language=es-MX&callback=initAutocomplete"
         async defer></script>
   </body>
 </html>
